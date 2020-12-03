@@ -15,9 +15,17 @@ public class RhymeGenerator {
      * @return A list containing words that rhyme with wordToRhyme. If no rhyming words can be found and empty list
      * will be returned.
      */
-    //TODO - implement me!
+    //TODO finish steps
     public List<String> findRhymingWords(String wordToRhyme, int numRhymingWords) {
-        List<String> rhymes = new ArrayList<>();
+       List<String> rhymes = new ArrayList<>();
+        PhonemeDictionary phonemeDictionary = new PhonemeDictionary("resources/tst/testCmuDict.txt");
+        List<String> phonemesForWord = phonemeDictionary.getPhonemes(wordToRhyme);
+        String rhymeWord = phonemesForWord.get(phonemesForWord.size()-1);
+        //loop through phonemes of other words
+
+        // check if phonemes are the same
+
+        // add to arraylist
         return rhymes;
     }
 }

@@ -26,8 +26,16 @@ public class WordRhymer {
      * @param possibleRhyme - the phonemes for the word being considered a rhyme
      * @return true if possibleRhyme is a rhyme with word as determined by the phoneme matching rule noted above
      */
-    //TODO - implement me!
+    //TODO check works
     public boolean checkForRhyme(String word, String possibleRhyme) {
+        PhonemeDictionary phonemeDictionary = new PhonemeDictionary("resources/tst/testCmuDict.txt");
+        List<String> phonemesForWord = phonemeDictionary.getPhonemes(word);
+        List<String> phonemesForPossibleRhyme = phonemeDictionary.getPhonemes(possibleRhyme);
+        String wordEnd = phonemesForWord.get(phonemesForWord.size()-1);
+        String possibleRhymeEnd = phonemesForWord.get(phonemesForPossibleRhyme.size()-1);
+        if(wordEnd.equals(possibleRhymeEnd)){
+            return true;
+        }
         return false;
     }
 }
