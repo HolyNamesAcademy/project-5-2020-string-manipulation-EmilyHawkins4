@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.lang.String;
 
 /**
  * This class provides methods that are helpful when working with the CMU Phoneme Dictionary
@@ -14,7 +15,7 @@ public class PhonemeDictionaryUtilities{
      */
     //TODO check works
     public static boolean isPhonemeEntry(String line) {
-        if(line.substring(0,3).equals(";;;")){
+        if(line.startsWith(";;;")){
             return false;
         }
         return true;
@@ -29,8 +30,7 @@ public class PhonemeDictionaryUtilities{
     //TODO check works
     public static String getWordFromLine(String line) {
         int space = line.indexOf(" ");
-        String word = line.substring(0, space);
-        return word;
+        return line.substring(0, space);
     }
 
     /**
@@ -43,13 +43,20 @@ public class PhonemeDictionaryUtilities{
     public static List<String> getPhonemesFromLine(String line) {
         List<String> phonemeList = new ArrayList<>();
         int space = line.indexOf(" ");
+        phonemeList.add(line.substring(0, space));
         String phonemes = line.substring(space +1);
+        int numWords = 1;
+        for(int i = 0; i<phonemes.length(); i++){
+           /* if(phonemes.charAt(i).equals(" ")){
+                numWords++;
+            }
+            */
+        }
         int iterations = 0;
-        while(iterations < phonemes.length()-1){
-            phonemes.indexOf(" ");
+        while(iterations < numWords){
+            space = phonemes.indexOf(" ");
             phonemeList.add(phonemes.substring(0, space));
-            String replace = phonemes.substring(space+1);
-            phonemes = replace;
+            phonemes = phonemes.substring(space+1);
             iterations ++;
         }
         return phonemeList;

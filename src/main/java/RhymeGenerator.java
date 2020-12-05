@@ -18,14 +18,7 @@ public class RhymeGenerator {
     //TODO finish steps
     public List<String> findRhymingWords(String wordToRhyme, int numRhymingWords) {
        List<String> rhymes = new ArrayList<>();
-        PhonemeDictionary phonemeDictionary = new PhonemeDictionary("resources/tst/testCmuDict.txt");
-        List<String> phonemesForWord = phonemeDictionary.getPhonemes(wordToRhyme);
-        String rhymeWord = phonemesForWord.get(phonemesForWord.size()-1);
-        //loop through phonemes of other words
 
-        // check if phonemes are the same
-
-        // add to arraylist
         return rhymes;
     }
 }
