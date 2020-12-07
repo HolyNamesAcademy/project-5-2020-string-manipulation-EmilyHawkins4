@@ -13,7 +13,6 @@ public class PhonemeDictionaryUtilities{
      * @param line - a line from the dictionary being parsed
      * @return true if the given line contains a word entry, false otherwise
      */
-    //TODO check works
     public static boolean isPhonemeEntry(String line) {
         if(line.startsWith(";;;")){
             return false;
@@ -27,7 +26,6 @@ public class PhonemeDictionaryUtilities{
      * @param line - the dictionary line we want to extract the word from
      * @return the word part of line
      */
-    //TODO check works
     public static String getWordFromLine(String line) {
         int space = line.indexOf(" ");
         return line.substring(0, space);
@@ -39,25 +37,20 @@ public class PhonemeDictionaryUtilities{
      * @param line - the dictionary line we want to get the phonemes from
      * @return a list containing the phonemes of the word in order.
      */
-    //TODO check works
-    public static List<String> getPhonemesFromLine(String line) {
-        List<String> phonemeList = new ArrayList<>();
-        int space = line.indexOf(" ");
-        phonemeList.add(line.substring(0, space));
-        String phonemes = line.substring(space +1);
-        int numWords = 1;
-        for(int i = 0; i<phonemes.length(); i++){
-           /* if(phonemes.charAt(i).equals(" ")){
-                numWords++;
-            }
-            */
-        }
-        int iterations = 0;
-        while(iterations < numWords){
-            space = phonemes.indexOf(" ");
+    //TODO fix errors
+    public static ArrayList<String> getPhonemesFromLine(String line) {
+        ArrayList<String> phonemeList = new ArrayList<>();
+        int space = line.indexOf("  ")+1;
+        String phonemes = line.substring(space);
+        phonemeList.add(phonemes.substring(0, space));
+        phonemes = line.substring(space +1);
+        while(true){
+            space = phonemes.indexOf(" ")+1;
             phonemeList.add(phonemes.substring(0, space));
             phonemes = phonemes.substring(space+1);
-            iterations ++;
+            if(phonemes.indexOf(" ")==-1){
+                break;
+            }
         }
         return phonemeList;
     }
