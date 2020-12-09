@@ -42,6 +42,7 @@ public class PhonemeDictionaryUtilities{
         ArrayList<String> phonemeList = new ArrayList<>();
         int space = line.indexOf("  ")+1;
         String phonemes = line.substring(space);
+        space = line.indexOf(" ")+1;
         phonemeList.add(phonemes.substring(0, space));
         phonemes = line.substring(space +1);
         while(true){
@@ -51,6 +52,16 @@ public class PhonemeDictionaryUtilities{
             if(phonemes.indexOf(" ")==-1){
                 break;
             }
+        }
+        return phonemeList;
+    }
+
+    public static ArrayList<String> tryagain(String line) {
+        ArrayList<String> phonemeList = new ArrayList<>();
+        int doubleSpace = line.indexOf("  ")+2;
+        String phonemesOnly = line.substring(doubleSpace);
+        for(String word: phonemesOnly.split(" ")){
+            phonemeList.add(word);
         }
         return phonemeList;
     }

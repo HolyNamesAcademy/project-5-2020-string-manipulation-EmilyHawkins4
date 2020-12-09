@@ -7,7 +7,6 @@ import static org.junit.Assert.*;
 
 public class PhonemeDictionaryUtilitiesTest {
     @Test
-    //TODO - implement me!
     public void isPhonemeEntry_CommentLine() {
         // Arrange
         //// Find an example of comment line
@@ -21,7 +20,6 @@ public class PhonemeDictionaryUtilitiesTest {
     }
 
     @Test
-    //TODO - implement me!
     public void isPhonemeEntry_PhonemeLine() {
         // Arrange
         //// Find an example of phoneme line
@@ -35,7 +33,6 @@ public class PhonemeDictionaryUtilitiesTest {
     }
 
     @Test
-    //TODO - implement me!
     public void getWordFromLineReturnsWord() {
         // Arrange
         //// Find an example of phoneme line
@@ -49,7 +46,6 @@ public class PhonemeDictionaryUtilitiesTest {
     }
 
     @Test
-    //TODO - implement me!
     public void getPhonemesFromLineReturnsPhonemes() {
         // Arrange
         //// Find an example of phoneme line
