@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -29,13 +30,20 @@ public class WordRhymer {
     //TODO check works
     public boolean checkForRhyme(String word, String possibleRhyme) {
         PhonemeDictionary phonemeDictionary = new PhonemeDictionary("resources/tst/testCmuDict.txt");
-        List<String> phonemesForWord = phonemeDictionary.getPhonemes(word);
-        List<String> phonemesForPossibleRhyme = phonemeDictionary.getPhonemes(possibleRhyme);
-        String wordEnd = phonemesForWord.get(phonemesForWord.size()-1);
-        String possibleRhymeEnd = phonemesForWord.get(phonemesForPossibleRhyme.size()-1);
-        if(wordEnd.equals(possibleRhymeEnd)){
-            return true;
-        }
+        ArrayList<String> wordEndingPhonemes = new ArrayList<>();
+        wordEndingPhonemes = PhonemeDictionaryUtilities.getPhonemesFromLine(word);
+        ArrayList<String> possibleRhymeEndingPhonemes = new ArrayList<>();
+        possibleRhymeEndingPhonemes = PhonemeDictionaryUtilities.getPhonemesFromLine(possibleRhyme);
+         int indexSubtraction = 2;
+         while(indexSubtraction>=0){
+             if(wordEndingPhonemes.get(wordEndingPhonemes.size()-indexSubtraction).equals(possibleRhymeEndingPhonemes.get(possibleRhymeEndingPhonemes.size()-indexSubtraction))){
+                 if(wordEndingPhonemes.get(wordEndingPhonemes.size()-indexSubtraction+1).equals(possibleRhymeEndingPhonemes.get(possibleRhymeEndingPhonemes.size()-indexSubtraction+1))){
+                     if(wordEndingPhonemes.get(wordEndingPhonemes.size()).equals(possibleRhymeEndingPhonemes.get(possibleRhymeEndingPhonemes.size()))){
+                         return true;
+                     }
+                 }
+             }
+         }
         return false;
     }
 }
