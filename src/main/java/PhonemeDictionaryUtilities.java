@@ -5,7 +5,7 @@ import java.lang.String;
 /**
  * This class provides methods that are helpful when working with the CMU Phoneme Dictionary
  */
-public class PhonemeDictionaryUtilities{
+public class PhonemeDictionaryUtilities {
     /**
      * Checks that the provided line is an entry in the file that contains a word and phonemes, and that it is not a
      * line containing comments.
@@ -14,7 +14,7 @@ public class PhonemeDictionaryUtilities{
      * @return true if the given line contains a word entry, false otherwise
      */
     public static boolean isPhonemeEntry(String line) {
-        if(line.startsWith(";;;")){
+        if (line.startsWith(";;;")) {
             return false;
         }
         return true;
@@ -40,27 +40,9 @@ public class PhonemeDictionaryUtilities{
     //TODO fix errors
     public static ArrayList<String> getPhonemesFromLine(String line) {
         ArrayList<String> phonemeList = new ArrayList<>();
-        int space = line.indexOf("  ")+1;
-        String phonemes = line.substring(space);
-        space = line.indexOf(" ")+1;
-        phonemeList.add(phonemes.substring(0, space));
-        phonemes = line.substring(space +1);
-        while(true){
-            space = phonemes.indexOf(" ")+1;
-            phonemeList.add(phonemes.substring(0, space));
-            phonemes = phonemes.substring(space+1);
-            if(phonemes.indexOf(" ")==-1){
-                break;
-            }
-        }
-        return phonemeList;
-    }
-
-    public static ArrayList<String> tryagain(String line) {
-        ArrayList<String> phonemeList = new ArrayList<>();
-        int doubleSpace = line.indexOf("  ")+2;
+        int doubleSpace = line.indexOf("  ") + 2;
         String phonemesOnly = line.substring(doubleSpace);
-        for(String word: phonemesOnly.split(" ")){
+        for (String word : phonemesOnly.split(" ")) {
             phonemeList.add(word);
         }
         return phonemeList;
