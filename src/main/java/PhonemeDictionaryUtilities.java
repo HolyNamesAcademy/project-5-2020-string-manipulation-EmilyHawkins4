@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.List;
 import java.lang.String;
 
 /**
@@ -37,7 +36,6 @@ public class PhonemeDictionaryUtilities {
      * @param line - the dictionary line we want to get the phonemes from
      * @return a list containing the phonemes of the word in order.
      */
-    //TODO fix errors
     public static ArrayList<String> getPhonemesFromLine(String line) {
         ArrayList<String> phonemeList = new ArrayList<>();
         int doubleSpace = line.indexOf("  ") + 2;

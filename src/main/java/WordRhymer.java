@@ -34,16 +34,25 @@ public class WordRhymer {
         wordEndingPhonemes = PhonemeDictionaryUtilities.getPhonemesFromLine(word);
         ArrayList<String> possibleRhymeEndingPhonemes = new ArrayList<>();
         possibleRhymeEndingPhonemes = PhonemeDictionaryUtilities.getPhonemesFromLine(possibleRhyme);
-        int indexSubtraction = 2;
-         while(indexSubtraction>=0){
-             if(wordEndingPhonemes.get(wordEndingPhonemes.size()-indexSubtraction).equals(possibleRhymeEndingPhonemes.get(possibleRhymeEndingPhonemes.size()-indexSubtraction))){
-                 if(wordEndingPhonemes.get(wordEndingPhonemes.size()-indexSubtraction+1).equals(possibleRhymeEndingPhonemes.get(possibleRhymeEndingPhonemes.size()-indexSubtraction+1))){
-                     if(wordEndingPhonemes.get(wordEndingPhonemes.size()).equals(possibleRhymeEndingPhonemes.get(possibleRhymeEndingPhonemes.size()))){
-                         return true;
-                     }
-                 }
-             }
-         }
+        if(wordEndingPhonemes.size()<3){
+                int subtract = 1;
+                if(wordEndingPhonemes.get(wordEndingPhonemes.size()-subtract).equals(possibleRhymeEndingPhonemes.get(possibleRhymeEndingPhonemes.size()-subtract))){
+                    subtract++;
+                    if(wordEndingPhonemes.get(wordEndingPhonemes.size()-subtract).equals(possibleRhymeEndingPhonemes.get(possibleRhymeEndingPhonemes.size()-subtract))){
+                        return true;
+                    }
+                }
+        }
+        if(possibleRhymeEndingPhonemes.size()<3){
+            int subtract = 1;
+            if(wordEndingPhonemes.get(wordEndingPhonemes.size()-subtract).equals(possibleRhymeEndingPhonemes.get(possibleRhymeEndingPhonemes.size()-subtract))){
+                subtract++;
+                if(wordEndingPhonemes.get(wordEndingPhonemes.size()-subtract).equals(possibleRhymeEndingPhonemes.get(possibleRhymeEndingPhonemes.size()-subtract))){
+                    return true;
+                }
+            }
+        }
+
         return false;
     }
 }
