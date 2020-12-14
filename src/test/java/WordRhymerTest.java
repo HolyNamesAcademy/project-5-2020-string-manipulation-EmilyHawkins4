@@ -11,13 +11,12 @@ public class WordRhymerTest {
     private WordRhymer wordRhymer = new WordRhymer();
 
     @Test
-    //TODO check works
     public void checkForRhyme_wordDoesNotRhymeWithSelf() {
         // Arrange
         //// Choose a word
         //// Choose a possible rhyme that is the same as above word
-        String word = "ABBREVIATE  AH0 B R IY1 V IY0 EY2 T";
-        String possibleRhyme = "ABDUCTOR  AE0 B D AH1 K T ER0";
+        String word = "ABBREVIATE";
+        String possibleRhyme = "ABBREVIATE";
         // Act
         //// Call checkForRhyme with the above inputs
         boolean result = wordRhymer.checkForRhyme(word, possibleRhyme);
@@ -32,8 +31,8 @@ public class WordRhymerTest {
         // Arrange
         //// Choose a word with three or more phonemes
         //// Choose a rhyming word with three or more phonemes
-        String word = "BANISH  B AE1 N IH0 SH";
-        String possibleRhyme = "SPANISH  S P AE1 N IH0 SH";
+        String word = "BANISH";
+        String possibleRhyme = "SPANISH";
         // Act
         //// Call checkForRhyme with the above inputs
         boolean result = wordRhymer.checkForRhyme(word, possibleRhyme);
@@ -43,7 +42,6 @@ public class WordRhymerTest {
     }
 
     @Test
-    //TODO check works
     public void checkForRhyme_notRhymes_bothWordsThreeOrMorePhonemes() {
         // Arrange
         //// Choose a word with three or more phonemes
@@ -75,7 +73,6 @@ public class WordRhymerTest {
     }
 
     @Test
-    //TODO check works
     public void checkForRhyme_notRhymes_wordLessThanThreePhonemes() {
         // Arrange
         //// Choose a word with three or more phonemes
@@ -107,7 +104,6 @@ public class WordRhymerTest {
     }
 
     @Test
-    //TODO check works
     public void checkForRhyme_notRhymes_possibleRhymeLessThanThreePhonemes() {
         // Arrange
         //// Choose a word with three or more phonemes

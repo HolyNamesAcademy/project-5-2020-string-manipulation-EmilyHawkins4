@@ -30,28 +30,51 @@ public class WordRhymer {
     //TODO write the stuff
     public boolean checkForRhyme(String word, String possibleRhyme) {
         PhonemeDictionary phonemeDictionary = new PhonemeDictionary("resources/tst/testCmuDict.txt");
-        ArrayList<String> wordEndingPhonemes = new ArrayList<>();
-        wordEndingPhonemes = PhonemeDictionaryUtilities.getPhonemesFromLine(word);
-        ArrayList<String> possibleRhymeEndingPhonemes = new ArrayList<>();
-        possibleRhymeEndingPhonemes = PhonemeDictionaryUtilities.getPhonemesFromLine(possibleRhyme);
-        if(wordEndingPhonemes.size()<3){
-                int subtract = 1;
-                if(wordEndingPhonemes.get(wordEndingPhonemes.size()-subtract).equals(possibleRhymeEndingPhonemes.get(possibleRhymeEndingPhonemes.size()-subtract))){
-                    subtract++;
-                    if(wordEndingPhonemes.get(wordEndingPhonemes.size()-subtract).equals(possibleRhymeEndingPhonemes.get(possibleRhymeEndingPhonemes.size()-subtract))){
+        if(word.equals(possibleRhyme)){
+            return false;
+        }
+       List<String> wordEndingPhonemes;
+        wordEndingPhonemes = phonemeDictionary.getPhonemes(word);
+        List<String> possibleRhymeEndingPhonemes;
+        possibleRhymeEndingPhonemes = phonemeDictionary.getPhonemes(possibleRhyme);
+
+        if(wordEndingPhonemes.size() <3 || possibleRhymeEndingPhonemes.size()<3) {
+            if (wordEndingPhonemes.size() < 3) {
+                if (wordEndingPhonemes.get(0).equals(possibleRhymeEndingPhonemes.get(0))) {
+                    if (wordEndingPhonemes.size() == 1) {
+                        return true;
+                    }
+                    if (wordEndingPhonemes.get(1).equals(possibleRhymeEndingPhonemes.get(1))) {
                         return true;
                     }
                 }
-        }
-        if(possibleRhymeEndingPhonemes.size()<3){
-            int subtract = 1;
-            if(wordEndingPhonemes.get(wordEndingPhonemes.size()-subtract).equals(possibleRhymeEndingPhonemes.get(possibleRhymeEndingPhonemes.size()-subtract))){
-                subtract++;
-                if(wordEndingPhonemes.get(wordEndingPhonemes.size()-subtract).equals(possibleRhymeEndingPhonemes.get(possibleRhymeEndingPhonemes.size()-subtract))){
-                    return true;
+            }
+            else if (possibleRhymeEndingPhonemes.size() < 3) {
+                int subtract = 1;
+                if (wordEndingPhonemes.get(0).equals(possibleRhymeEndingPhonemes.get(0))) {
+                    subtract++;
+                    if (possibleRhymeEndingPhonemes.size() == 1) {
+                        return true;
+                    }
+                    if (wordEndingPhonemes.get(1).equals(possibleRhymeEndingPhonemes.get(1))) {
+                        return true;
+                    }
                 }
             }
         }
+        List<String> lastWordEndingPhonemes;
+        lastWordEndingPhonemes.add(wordEndingPhonemes.get(wordEndingPhonemes.size()-1));
+        List<String> lastPossibleRhymeEndingPhonemes;
+        lastPossibleRhymeEndingPhonemes.add(possibleRhymeEndingPhonemes.get(possibleRhymeEndingPhonemes.size()-1));
+
+            if(wordEndingPhonemes.get(wordEndingPhonemes.size()-1).equals(possibleRhymeEndingPhonemes.get(possibleRhymeEndingPhonemes.size()-1))){
+                if(wordEndingPhonemes.get(wordEndingPhonemes.size()-2).equals(possibleRhymeEndingPhonemes.get(possibleRhymeEndingPhonemes.size()-2))) {
+                    if(wordEndingPhonemes.get(wordEndingPhonemes.size()-3).equals(possibleRhymeEndingPhonemes.get(possibleRhymeEndingPhonemes.size()-3))) {
+                        return true;
+                    }
+                }
+            }
+
 
         return false;
     }
