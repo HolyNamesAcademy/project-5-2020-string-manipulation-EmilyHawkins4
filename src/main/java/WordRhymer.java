@@ -27,7 +27,7 @@ public class WordRhymer {
      * @param possibleRhyme - the phonemes for the word being considered a rhyme
      * @return true if possibleRhyme is a rhyme with word as determined by the phoneme matching rule noted above
      */
-    //TODO check works
+    //TODO write the stuff
     public boolean checkForRhyme(String word, String possibleRhyme) {
         PhonemeDictionary phonemeDictionary = new PhonemeDictionary("resources/tst/testCmuDict.txt");
         ArrayList<String> wordEndingPhonemes = new ArrayList<>();

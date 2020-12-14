@@ -65,7 +65,6 @@ public class Main {
      * @param originalWord - the word the user asked to find rhymes for
      */
     public static void printRhymes(List<String> rhymingWords, String originalWord) {
-        //TODO - implement me!
         String formattedrhymes = String.format("Found %d words that rhyme with: %s \n %s \n %s \n %s", rhymingWords.size(), originalWord, rhymingWords.get(0), rhymingWords.get(1), rhymingWords.get(2));
             System.out.print(formattedrhymes);
     }
