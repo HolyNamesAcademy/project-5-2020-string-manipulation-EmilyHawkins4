@@ -46,8 +46,8 @@ public class WordRhymerTest {
         // Arrange
         //// Choose a word with three or more phonemes
         //// Choose a non-rhyming word with three or more phonemes
-        String word = "SPALLA  S P AE1 L AH0";
-        String possibleRhyme = "KNOWING  N OW1 IH0 NG";
+        String word = "SPALLA";
+        String possibleRhyme = "KNOWING";
         // Act
         //// Call checkForRhyme with the above inputs
         boolean result = wordRhymer.checkForRhyme(word, possibleRhyme);
@@ -62,8 +62,8 @@ public class WordRhymerTest {
         // Arrange
         //// Choose a word with three or more phonemes
         //// Choose a non-rhyming word with three or more phonemes
-        String word = "I  AY1";
-        String possibleRhyme = "FLY  F L AY1";
+        String word = "I";
+        String possibleRhyme = "FLY";
         // Act
         //// Call checkForRhyme with the above inputs
         boolean result = wordRhymer.checkForRhyme(word, possibleRhyme);
@@ -77,8 +77,8 @@ public class WordRhymerTest {
         // Arrange
         //// Choose a word with three or more phonemes
         //// Choose a non-rhyming word with three or more phonemes
-        String word = "DAY  D EY1";
-        String possibleRhyme = "SPANISH  S P AE1 N IH0 SH";
+        String word = "DAY";
+        String possibleRhyme = "SPANISH";
         // Act
         //// Call checkForRhyme with the above inputs
         boolean result = wordRhymer.checkForRhyme(word, possibleRhyme);
@@ -93,8 +93,8 @@ public class WordRhymerTest {
         // Arrange
         //// Choose a word with three or more phonemes
         //// Choose a non-rhyming word with three or more phonemes
-        String word = "FLY  F L AY1";
-        String possibleRhyme = "I  AY1";
+        String word = "FLY";
+        String possibleRhyme = "I";
         // Act
         //// Call checkForRhyme with the above inputs
         boolean result = wordRhymer.checkForRhyme(word, possibleRhyme);
@@ -108,8 +108,8 @@ public class WordRhymerTest {
         // Arrange
         //// Choose a word with three or more phonemes
         //// Choose a non-rhyming word with three or more phonemes
-        String word = "SPANISH  S P AE1 N IH0 SH";
-        String possibleRhyme = "DAY  D EY1";
+        String word = "SPANISH";
+        String possibleRhyme = "DAY";
         // Act
         //// Call checkForRhyme with the above inputs
         boolean result = wordRhymer.checkForRhyme(word, possibleRhyme);

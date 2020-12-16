@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -27,55 +26,45 @@ public class WordRhymer {
      * @param possibleRhyme - the phonemes for the word being considered a rhyme
      * @return true if possibleRhyme is a rhyme with word as determined by the phoneme matching rule noted above
      */
-    //TODO write the stuff
+    //TODO fix everything
     public boolean checkForRhyme(String word, String possibleRhyme) {
         PhonemeDictionary phonemeDictionary = new PhonemeDictionary("resources/tst/testCmuDict.txt");
         if(word.equals(possibleRhyme)){
             return false;
         }
-       List<String> wordEndingPhonemes;
-        wordEndingPhonemes = phonemeDictionary.getPhonemes(word);
-        List<String> possibleRhymeEndingPhonemes;
-        possibleRhymeEndingPhonemes = phonemeDictionary.getPhonemes(possibleRhyme);
+        List <String> wordPhonemes = null;
+        wordPhonemes = phonemeDictionary.getPhonemes(word);
+        List <String> prPhonemes = null;
+        prPhonemes = phonemeDictionary.getPhonemes(possibleRhyme);
 
-        if(wordEndingPhonemes.size() <3 || possibleRhymeEndingPhonemes.size()<3) {
-            if (wordEndingPhonemes.size() < 3) {
-                if (wordEndingPhonemes.get(0).equals(possibleRhymeEndingPhonemes.get(0))) {
-                    if (wordEndingPhonemes.size() == 1) {
-                        return true;
-                    }
-                    if (wordEndingPhonemes.get(1).equals(possibleRhymeEndingPhonemes.get(1))) {
-                        return true;
-                    }
-                }
-            }
-            else if (possibleRhymeEndingPhonemes.size() < 3) {
-                int subtract = 1;
-                if (wordEndingPhonemes.get(0).equals(possibleRhymeEndingPhonemes.get(0))) {
-                    subtract++;
-                    if (possibleRhymeEndingPhonemes.size() == 1) {
-                        return true;
-                    }
-                    if (wordEndingPhonemes.get(1).equals(possibleRhymeEndingPhonemes.get(1))) {
-                        return true;
-                    }
-                }
+        if(wordPhonemes.size() >2 && prPhonemes.size() >2){
+            boolean lastPhoneme = wordPhonemes.get(wordPhonemes.size()-1).equals(prPhonemes.get(prPhonemes.size()-1));
+            boolean secondLastPhoneme = wordPhonemes.get(wordPhonemes.size()-2).equals(prPhonemes.get(prPhonemes.size()-2));
+            boolean thirdLastPhoneme = wordPhonemes.get(wordPhonemes.size()-3).equals(prPhonemes.get(prPhonemes.size()-3));
+            if(lastPhoneme && secondLastPhoneme && thirdLastPhoneme){
+                return true;
             }
         }
-        List<String> lastWordEndingPhonemes;
-        lastWordEndingPhonemes.add(wordEndingPhonemes.get(wordEndingPhonemes.size()-1));
-        List<String> lastPossibleRhymeEndingPhonemes;
-        lastPossibleRhymeEndingPhonemes.add(possibleRhymeEndingPhonemes.get(possibleRhymeEndingPhonemes.size()-1));
-
-            if(wordEndingPhonemes.get(wordEndingPhonemes.size()-1).equals(possibleRhymeEndingPhonemes.get(possibleRhymeEndingPhonemes.size()-1))){
-                if(wordEndingPhonemes.get(wordEndingPhonemes.size()-2).equals(possibleRhymeEndingPhonemes.get(possibleRhymeEndingPhonemes.size()-2))) {
-                    if(wordEndingPhonemes.get(wordEndingPhonemes.size()-3).equals(possibleRhymeEndingPhonemes.get(possibleRhymeEndingPhonemes.size()-3))) {
-                        return true;
-                    }
-                }
+        if(wordPhonemes.size()<3){
+            if(wordPhonemes.size()==1 && wordPhonemes.get(0).equals(prPhonemes.get(prPhonemes.size()-1))){
+                return true;
             }
-
-
+            boolean lastP = wordPhonemes.get(1).equals(prPhonemes.get(prPhonemes.size()-1));
+            boolean secondLastP = wordPhonemes.get(0).equals(prPhonemes.get(prPhonemes.size()-2));
+            if(lastP && secondLastP){
+                return true;
+            }
+        }
+        if(prPhonemes.size()<3){
+            if(prPhonemes.size()==1 && prPhonemes.get(0).equals(wordPhonemes.get(wordPhonemes.size()-1))){
+                return true;
+            }
+            boolean lastP = wordPhonemes.get(wordPhonemes.size()-1).equals(prPhonemes.get(prPhonemes.size()-1));
+            boolean secondLastP = wordPhonemes.get(wordPhonemes.size()-2).equals(prPhonemes.get(prPhonemes.size()-2));
+            if(lastP && secondLastP){
+                return true;
+            }
+        }
         return false;
     }
 }
