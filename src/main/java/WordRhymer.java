@@ -26,45 +26,68 @@ public class WordRhymer {
      * @param possibleRhyme - the phonemes for the word being considered a rhyme
      * @return true if possibleRhyme is a rhyme with word as determined by the phoneme matching rule noted above
      */
-    //TODO fix everything
+    //TODO: fix everything
     public boolean checkForRhyme(String word, String possibleRhyme) {
         PhonemeDictionary phonemeDictionary = new PhonemeDictionary("resources/tst/testCmuDict.txt");
-        if(word.equals(possibleRhyme)){
+        // check if words are the same
+        if (word.equals(possibleRhyme)) {
             return false;
         }
-        List <String> wordPhonemes = null;
-        wordPhonemes = phonemeDictionary.getPhonemes(word);
-        List <String> prPhonemes = null;
-        prPhonemes = phonemeDictionary.getPhonemes(possibleRhyme);
 
-        if(wordPhonemes.size() >2 && prPhonemes.size() >2){
-            boolean lastPhoneme = wordPhonemes.get(wordPhonemes.size()-1).equals(prPhonemes.get(prPhonemes.size()-1));
-            boolean secondLastPhoneme = wordPhonemes.get(wordPhonemes.size()-2).equals(prPhonemes.get(prPhonemes.size()-2));
-            boolean thirdLastPhoneme = wordPhonemes.get(wordPhonemes.size()-3).equals(prPhonemes.get(prPhonemes.size()-3));
-            if(lastPhoneme && secondLastPhoneme && thirdLastPhoneme){
-                return true;
+        //isolating the phonemes
+        List<String> wordPhonemes = phonemeDictionary.getPhonemes(word);
+        List<String> prPhonemes = phonemeDictionary.getPhonemes(possibleRhyme);
+
+        // checking for words more then 2 phonemes
+        if (wordPhonemes.size() > 2 && prPhonemes.size() > 2) {
+            if (wordPhonemes.get(wordPhonemes.size() - 1).equals(prPhonemes.get(prPhonemes.size() - 1))) {
+                boolean last = true;
+                if (wordPhonemes.get(wordPhonemes.size() - 2).equals(prPhonemes.get(prPhonemes.size() - 2))) {
+                    boolean last2nd = true;
+                    if (wordPhonemes.get(wordPhonemes.size() - 3).equals(prPhonemes.get(prPhonemes.size() - 3))) {
+                        boolean last3rd = true;
+                        if (last && last2nd && last3rd) {
+                            return true;
+                        }
+                    }
+                }
             }
         }
+
+        //checking for when "word" is less then 3 phonemes
         if(wordPhonemes.size()<3){
-            if(wordPhonemes.size()==1 && wordPhonemes.get(0).equals(prPhonemes.get(prPhonemes.size()-1))){
-                return true;
+            // checking for 1 phoneme
+            if(wordPhonemes.size()==1){
+                if(wordPhonemes.get(0).equals(prPhonemes.get(prPhonemes.size()-1))){
+                    return true;
+                }
             }
-            boolean lastP = wordPhonemes.get(1).equals(prPhonemes.get(prPhonemes.size()-1));
-            boolean secondLastP = wordPhonemes.get(0).equals(prPhonemes.get(prPhonemes.size()-2));
-            if(lastP && secondLastP){
-                return true;
+            // checking for 2 phonemes
+            if(wordPhonemes.get(1).equals(prPhonemes.get(prPhonemes.size()-1))){
+                if(wordPhonemes.get(0).equals(prPhonemes.get(prPhonemes.size()-2))){
+                    return true;
+                }
             }
         }
+
+        //checking for when "possibleRhyme" is more then 3 phonemes
         if(prPhonemes.size()<3){
-            if(prPhonemes.size()==1 && prPhonemes.get(0).equals(wordPhonemes.get(wordPhonemes.size()-1))){
-                return true;
+            // checking for 1 phoneme
+            if(prPhonemes.size()==1){
+                if(prPhonemes.get(0).equals(wordPhonemes.get(wordPhonemes.size()-1))){
+                    return true;
+                }
             }
-            boolean lastP = wordPhonemes.get(wordPhonemes.size()-1).equals(prPhonemes.get(prPhonemes.size()-1));
-            boolean secondLastP = wordPhonemes.get(wordPhonemes.size()-2).equals(prPhonemes.get(prPhonemes.size()-2));
-            if(lastP && secondLastP){
-                return true;
+            // checking for 2 phonemes
+            if(prPhonemes.get(1).equals(wordPhonemes.get(wordPhonemes.size()-1))){
+                if(prPhonemes.get(0).equals(wordPhonemes.get(wordPhonemes.size()-2))){
+                    return true;
+                }
             }
         }
+
+        // if nothing rhymes
         return false;
+
     }
 }
