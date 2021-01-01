@@ -41,14 +41,9 @@ public class WordRhymer {
         // checking for words more then 2 phonemes
         if (wordPhonemes.size() > 2 && prPhonemes.size() > 2) {
             if (wordPhonemes.get(wordPhonemes.size() - 1).equals(prPhonemes.get(prPhonemes.size() - 1))) {
-                boolean last = true;
                 if (wordPhonemes.get(wordPhonemes.size() - 2).equals(prPhonemes.get(prPhonemes.size() - 2))) {
-                    boolean last2nd = true;
                     if (wordPhonemes.get(wordPhonemes.size() - 3).equals(prPhonemes.get(prPhonemes.size() - 3))) {
-                        boolean last3rd = true;
-                        if (last && last2nd && last3rd) {
-                            return true;
-                        }
+                        return true;
                     }
                 }
             }
