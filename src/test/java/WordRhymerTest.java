@@ -26,7 +26,7 @@ public class WordRhymerTest {
     }
 
     @Test
-    //TODO: make it pass ahhhhh
+    //TODO: make it work
     public void checkForRhyme_rhymes_bothWordsThreeOrMorePhonemes() {
         // Arrange
         //// Choose a word with three or more phonemes
@@ -42,7 +42,7 @@ public class WordRhymerTest {
     }
 
     @Test
-    //TODO: make it pass ahhhhh
+    //TODO: make it work
     public void checkForRhyme_notRhymes_bothWordsThreeOrMorePhonemes() {
         // Arrange
         //// Choose a word with three or more phonemes
@@ -58,7 +58,7 @@ public class WordRhymerTest {
     }
 
     @Test
-    //TODO: make it pass ahhhhh
+    //TODO: make it work
     public void checkForRhyme_rhymes_wordLessThanThreePhonemes() {
         // Arrange
         //// Choose a word with three or more phonemes
@@ -74,7 +74,7 @@ public class WordRhymerTest {
     }
 
     @Test
-    //TODO: make it pass ahhhhh
+    //TODO: make it work
     public void checkForRhyme_notRhymes_wordLessThanThreePhonemes() {
         // Arrange
         //// Choose a word with three or more phonemes
@@ -90,7 +90,7 @@ public class WordRhymerTest {
     }
 
     @Test
-    //TODO make it pass ahhhhh
+    //TODO make it work
     public void checkForRhyme_rhymes_possibleRhymeLessThanThreePhonemes() {
         // Arrange
         //// Choose a word with three or more phonemes
