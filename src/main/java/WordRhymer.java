@@ -50,7 +50,7 @@ public class WordRhymer {
         }
 
         //checking for when "word" is less then 3 phonemes
-        if(wordPhonemes.size()<3){
+        if(wordPhonemes.size()<3 && prPhonemes.size()>2){
             // checking for 1 phoneme
             if(wordPhonemes.size()==1){
                 if(wordPhonemes.get(0).equals(prPhonemes.get(prPhonemes.size()-1))){
@@ -65,8 +65,8 @@ public class WordRhymer {
             }
         }
 
-        //checking for when "possibleRhyme" is more then 3 phonemes
-        if(prPhonemes.size()<3){
+        //checking for when "possibleRhyme" is more than 3 phonemes
+        if(prPhonemes.size()<3 && wordPhonemes.size()>2){
             // checking for 1 phoneme
             if(prPhonemes.size()==1){
                 if(prPhonemes.get(0).equals(wordPhonemes.get(wordPhonemes.size()-1))){
@@ -81,6 +81,10 @@ public class WordRhymer {
             }
         }
 
+        //checking for when both Lists are less than 3 phonemes
+        if(wordPhonemes.size()<3 && prPhonemes.size()<3){
+
+        }
         // if nothing rhymes
         return false;
 
