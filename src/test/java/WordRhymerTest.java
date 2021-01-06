@@ -47,8 +47,8 @@ public class WordRhymerTest {
         // Arrange
         //// Choose a word with three or more phonemes
         //// Choose a non-rhyming word with three or more phonemes
-        String word = "SPALLA";
-        String possibleRhyme = "KNOWING";
+        String word = "SPANISH";
+        String possibleRhyme = "APPLY";
         // Act
         //// Call checkForRhyme with the above inputs
         boolean result = wordRhymer.checkForRhyme(word, possibleRhyme);
@@ -64,7 +64,7 @@ public class WordRhymerTest {
         //// Choose a word with three or more phonemes
         //// Choose a non-rhyming word with three or more phonemes
         String word = "I";
-        String possibleRhyme = "FLY";
+        String possibleRhyme = "APPLY";
         // Act
         //// Call checkForRhyme with the above inputs
         boolean result = wordRhymer.checkForRhyme(word, possibleRhyme);
@@ -79,7 +79,7 @@ public class WordRhymerTest {
         // Arrange
         //// Choose a word with three or more phonemes
         //// Choose a non-rhyming word with three or more phonemes
-        String word = "DAY";
+        String word = "I";
         String possibleRhyme = "SPANISH";
         // Act
         //// Call checkForRhyme with the above inputs
@@ -95,7 +95,7 @@ public class WordRhymerTest {
         // Arrange
         //// Choose a word with three or more phonemes
         //// Choose a non-rhyming word with three or more phonemes
-        String word = "FLY";
+        String word = "APPLY";
         String possibleRhyme = "I";
         // Act
         //// Call checkForRhyme with the above inputs
@@ -112,7 +112,7 @@ public class WordRhymerTest {
         //// Choose a word with three or more phonemes
         //// Choose a non-rhyming word with three or more phonemes
         String word = "SPANISH";
-        String possibleRhyme = "DAY";
+        String possibleRhyme = "I";
         // Act
         //// Call checkForRhyme with the above inputs
         boolean result = wordRhymer.checkForRhyme(word, possibleRhyme);
