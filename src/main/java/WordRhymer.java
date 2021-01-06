@@ -34,11 +34,11 @@ public class WordRhymer {
             return false;
         }
 
-        //isolating the phonemes
+        //isolating the phonemes into Lists
         List<String> wordPhonemes = phonemeDictionary.getPhonemes(word);
         List<String> prPhonemes = phonemeDictionary.getPhonemes(possibleRhyme);
 
-        // checking for words more then 2 phonemes
+        // checking for words more than 2 phonemes
         if (wordPhonemes.size() > 2 && prPhonemes.size() > 2) {
             if (wordPhonemes.get(wordPhonemes.size() - 1).equals(prPhonemes.get(prPhonemes.size() - 1))) {
                 if (wordPhonemes.get(wordPhonemes.size() - 2).equals(prPhonemes.get(prPhonemes.size() - 2))) {
@@ -49,7 +49,7 @@ public class WordRhymer {
             }
         }
 
-        //checking for when "word" is less then 3 phonemes
+        //checking for when "word" is less than 3 phonemes
         if(wordPhonemes.size()<3 && prPhonemes.size()>2){
             // checking for 1 phoneme
             if(wordPhonemes.size()==1){
@@ -83,7 +83,18 @@ public class WordRhymer {
 
         //checking for when both Lists are less than 3 phonemes
         if(wordPhonemes.size()<3 && prPhonemes.size()<3){
-
+            //checking for when "word" has 1 and "pr" has 2
+            if(wordPhonemes.size()==1&&prPhonemes.size()==2){
+                if(wordPhonemes.get(0).equals(prPhonemes.get(1))){
+                    return true;
+                }
+            }
+            //checking for when "pr" has 1 and "word" has 2
+            if(prPhonemes.size()==1 && wordPhonemes.size()==2){
+                if(prPhonemes.get(0).equals(wordPhonemes.get(1))){
+                    return true;
+                }
+            }
         }
         // if nothing rhymes
         return false;
