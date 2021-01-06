@@ -15,8 +15,8 @@ public class WordRhymerTest {
         // Arrange
         //// Choose a word
         //// Choose a possible rhyme that is the same as above word
-        String word = "ABBREVIATE";
-        String possibleRhyme = "ABBREVIATE";
+        String word = "APPLY";
+        String possibleRhyme = "APPLY";
         // Act
         //// Call checkForRhyme with the above inputs
         boolean result = wordRhymer.checkForRhyme(word, possibleRhyme);
@@ -42,7 +42,7 @@ public class WordRhymerTest {
     }
 
     @Test
-    //TODO: make it work!
+    //TODO: make sure it keeps working!
     public void checkForRhyme_notRhymes_bothWordsThreeOrMorePhonemes() {
         // Arrange
         //// Choose a word with three or more phonemes
@@ -74,7 +74,7 @@ public class WordRhymerTest {
     }
 
     @Test
-    //TODO: make it work!
+    //TODO: make sure it keeps working!
     public void checkForRhyme_notRhymes_wordLessThanThreePhonemes() {
         // Arrange
         //// Choose a word with three or more phonemes
@@ -106,7 +106,7 @@ public class WordRhymerTest {
     }
 
     @Test
-    //TODO: make it work!
+    //TODO: make sure it keeps working!
     public void checkForRhyme_notRhymes_possibleRhymeLessThanThreePhonemes() {
         // Arrange
         //// Choose a word with three or more phonemes
