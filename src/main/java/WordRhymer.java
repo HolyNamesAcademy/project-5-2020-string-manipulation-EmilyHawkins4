@@ -26,11 +26,11 @@ public class WordRhymer {
      * @param possibleRhyme - the phonemes for the word being considered a rhyme
      * @return true if possibleRhyme is a rhyme with word as determined by the phoneme matching rule noted above
      */
-    //TODO: fix everything
     public boolean checkForRhyme(String word, String possibleRhyme) {
-        PhonemeDictionary phonemeDictionary = new PhonemeDictionary("resources/tst/testCmuDict.txt");
-        // check if words are the same
-        if (word.equals(possibleRhyme)) {
+       // PhonemeDictionary phonemeDictionary = new PhonemeDictionary("resources/tst/testCmuDict.txt");
+
+        // checking if words are the same
+        if (word.equalsIgnoreCase(possibleRhyme)) {
             return false;
         }
 
@@ -38,64 +38,38 @@ public class WordRhymer {
         List<String> wordPhonemes = phonemeDictionary.getPhonemes(word);
         List<String> prPhonemes = phonemeDictionary.getPhonemes(possibleRhyme);
 
-        // checking for words more than 2 phonemes
-        if (wordPhonemes.size() > 2 && prPhonemes.size() > 2) {
-            if (wordPhonemes.get(wordPhonemes.size() - 1).equals(prPhonemes.get(prPhonemes.size() - 1))) {
-                if (wordPhonemes.get(wordPhonemes.size() - 2).equals(prPhonemes.get(prPhonemes.size() - 2))) {
-                    if (wordPhonemes.get(wordPhonemes.size() - 3).equals(prPhonemes.get(prPhonemes.size() - 3))) {
+        //checking for when they are empty
+        if(wordPhonemes.size()==0 || prPhonemes.size()==0){
+            return false;
+        }
+
+        // checking for both more than 2 phonemes
+        if (wordPhonemes.size() >= 3 && prPhonemes.size() >= 3) {
+            if (wordPhonemes.get(wordPhonemes.size() - 1).equalsIgnoreCase(prPhonemes.get(prPhonemes.size() - 1))) {
+                if (wordPhonemes.get(wordPhonemes.size() - 2).equalsIgnoreCase(prPhonemes.get(prPhonemes.size() - 2))) {
+                    if (wordPhonemes.get(wordPhonemes.size() - 3).equalsIgnoreCase(prPhonemes.get(prPhonemes.size() - 3))) {
                         return true;
                     }
                 }
             }
         }
 
-        //checking for when "word" is less than 3 phonemes
-        if(wordPhonemes.size()<3 && prPhonemes.size()>2){
-            // checking for 1 phoneme
-            if(wordPhonemes.size()==1){
-                if(wordPhonemes.get(0).equals(prPhonemes.get(prPhonemes.size()-1))){
-                    return true;
-                }
-            }
-            // checking for 2 phonemes
-            if(wordPhonemes.get(1).equals(prPhonemes.get(prPhonemes.size()-1))){
-                if(wordPhonemes.get(0).equals(prPhonemes.get(prPhonemes.size()-2))){
+        //checking for when either has 1 phoneme
+        if(wordPhonemes.size()==2 || prPhonemes.size()==2){
+            if(wordPhonemes.get(wordPhonemes.size()-2).equalsIgnoreCase(prPhonemes.get(prPhonemes.size()-2))){
+                if(wordPhonemes.get(wordPhonemes.size()-1).equalsIgnoreCase(prPhonemes.get(prPhonemes.size()-1))){
                     return true;
                 }
             }
         }
 
-        //checking for when "possibleRhyme" is more than 3 phonemes
-        if(prPhonemes.size()<3 && wordPhonemes.size()>2){
-            // checking for 1 phoneme
-            if(prPhonemes.size()==1){
-                if(prPhonemes.get(0).equals(wordPhonemes.get(wordPhonemes.size()-1))){
-                    return true;
-                }
-            }
-            // checking for 2 phonemes
-            if(prPhonemes.get(1).equals(wordPhonemes.get(wordPhonemes.size()-1))){
-                if(prPhonemes.get(0).equals(wordPhonemes.get(wordPhonemes.size()-2))){
-                    return true;
-                }
+        //checking for when either has 1 phoneme
+        if(wordPhonemes.size()==1 || prPhonemes.size()==1){
+            if(wordPhonemes.get(wordPhonemes.size()-1).equalsIgnoreCase(prPhonemes.get(prPhonemes.size()-1))){
+                return true;
             }
         }
 
-        //checking for when both Lists are less than 3 phonemes
-        if(wordPhonemes.size()<3 && prPhonemes.size()<3){
-            //checking for when "word" has 1 and "pr" has 2
-            if(wordPhonemes.size()==1&&prPhonemes.size()==2){
-                if(wordPhonemes.get(0).equals(prPhonemes.get(1))){
-                    return true;
-                }
-            }
-            //checking for when "pr" has 1 and "word" has 2
-            if(prPhonemes.size()==1 && wordPhonemes.size()==2){
-                if(prPhonemes.get(0).equals(wordPhonemes.get(1))){
-                    return true;
-                }
-            }
-        }
         // if nothing rhymes
         return false;
 

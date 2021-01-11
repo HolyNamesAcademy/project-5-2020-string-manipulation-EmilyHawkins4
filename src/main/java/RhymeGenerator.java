@@ -15,11 +15,11 @@ public class RhymeGenerator {
      * @return A list containing words that rhyme with wordToRhyme. If no rhyming words can be found and empty list
      * will be returned.
      */
-    //TODO: fix WordRhymer so can run this test class!!
+    //TODO: write the method
     public List<String> findRhymingWords(String wordToRhyme, int numRhymingWords) {
         List<String> rhymes = new ArrayList<>();
-        PhonemeDictionary phonemeDictionary = new PhonemeDictionary("resources/tst/testCmuDict.txt");
-        List<String> allWords = phonemeDictionary.getEntries();
+        //PhonemeDictionary phonemeDictionary = new PhonemeDictionary("resources/tst/testCmuDict.txt");
+        List<String> allWords = rhymer.getAllPossibleRhymes();
         for(int i = 0; i<allWords.size(); i++){
             if(rhymer.checkForRhyme(wordToRhyme, allWords.get(i))){
                 rhymes.add(allWords.get(i));
