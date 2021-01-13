@@ -54,7 +54,7 @@ public class WordRhymer {
             }
         }
 
-        //checking for when either has 1 phoneme
+        //checking for when either has 2 phonemes
         if(wordPhonemes.size()==2 || prPhonemes.size()==2){
             if(wordPhonemes.get(wordPhonemes.size()-2).equalsIgnoreCase(prPhonemes.get(prPhonemes.size()-2))){
                 if(wordPhonemes.get(wordPhonemes.size()-1).equalsIgnoreCase(prPhonemes.get(prPhonemes.size()-1))){
