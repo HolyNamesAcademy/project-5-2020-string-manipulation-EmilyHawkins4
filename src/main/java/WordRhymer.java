@@ -27,23 +27,18 @@ public class WordRhymer {
      * @return true if possibleRhyme is a rhyme with word as determined by the phoneme matching rule noted above
      */
     public boolean checkForRhyme(String word, String possibleRhyme) {
-       // PhonemeDictionary phonemeDictionary = new PhonemeDictionary("resources/tst/testCmuDict.txt");
 
-        // checking if words are the same
         if (word.equalsIgnoreCase(possibleRhyme)) {
             return false;
         }
 
-        //isolating the phonemes into Lists
         List<String> wordPhonemes = phonemeDictionary.getPhonemes(word);
         List<String> prPhonemes = phonemeDictionary.getPhonemes(possibleRhyme);
 
-        //checking for when they are empty
         if(wordPhonemes.size()==0 || prPhonemes.size()==0){
             return false;
         }
 
-        // checking for both more than 2 phonemes
         if (wordPhonemes.size() >= 3 && prPhonemes.size() >= 3) {
             if (wordPhonemes.get(wordPhonemes.size() - 1).equalsIgnoreCase(prPhonemes.get(prPhonemes.size() - 1))) {
                 if (wordPhonemes.get(wordPhonemes.size() - 2).equalsIgnoreCase(prPhonemes.get(prPhonemes.size() - 2))) {
@@ -54,7 +49,6 @@ public class WordRhymer {
             }
         }
 
-        //checking for when either has 2 phonemes
         if(wordPhonemes.size()==2 || prPhonemes.size()==2){
             if(wordPhonemes.get(wordPhonemes.size()-2).equalsIgnoreCase(prPhonemes.get(prPhonemes.size()-2))){
                 if(wordPhonemes.get(wordPhonemes.size()-1).equalsIgnoreCase(prPhonemes.get(prPhonemes.size()-1))){
@@ -63,14 +57,12 @@ public class WordRhymer {
             }
         }
 
-        //checking for when either has 1 phoneme
         if(wordPhonemes.size()==1 || prPhonemes.size()==1){
             if(wordPhonemes.get(wordPhonemes.size()-1).equalsIgnoreCase(prPhonemes.get(prPhonemes.size()-1))){
                 return true;
             }
         }
 
-        // if nothing rhymes
         return false;
 
     }
